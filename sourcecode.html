@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Themed Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            width: 100%;
+            background: #21173230;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            position: fixed;
+            z-index: 10;
+        }
+
+        .navbar a:hover {
+            text-shadow: 0 0 10px #865DFF, 0 0 20px #865DFF, 0 0 30px #865DFF;
+        }
+
+        .navbar .logo {
+            font-size: 1.7em;
+            display: flex;
+            align-items: center;  
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left .navbar-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-item {
+            margin: 0 1em;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #DBE6FD;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #FFA3FD, 0 0 20px #FFA3FD, 0 0 30px #FFA3FD;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            color: #DBE6FD;
+        }
+
+        .search-bar {
+            background: none;
+            border: 1px solid #DBE6FD;;
+            color: #DBE6FD;
+            padding: 0.5em;
+            width: 0;
+            transition: width 0.3s, padding 0.3s;
+        }
+
+        .search-bar:hover{
+            color: #fff;
+            box-shadow: 0 0 10px #FFA3FD,0 0 20px #FFA3FD,0 0 30px #FFA3FD;
+        }
+
+        .search-bar:focus {
+            width: 200px;
+        }
+
+        .search-icon {
+            cursor: pointer;
+            color: #DBE6FD;
+            margin-left: 1em;
+            transition: color 0.3s;
+        }
+
+        .search-icon:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #FFA3FD,0 0 20px #FFA3FD,0 0 30px #FFA3FD;
+        }
+
+        #home {
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: left;
+            margin: 0 auto;
+            background-color: #000;
+            color: #fff;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .home-content {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .typing-animation {
+            border-right: 2px solid #865DFF;        
+            color: #f9c7f8;
+            text-shadow: 0 0 10px #865DFF;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+        }
+
+        .fadeup-animation {
+            white-space: nowrap;
+            opacity: 0;
+            overflow: hidden;
+            animation: fadeup-typing 4s steps(40, end) 4s, blink 0.75s step-end infinite 4s,fadeIn 0.5s forwards 4s;
+        }
+
+        .home-video {
+            max-width: 350px;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes fadeup-typing {
+            from { width: 0;}
+            to { width: 100%; opacity: 1; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
+
+        .cta {
+            margin-top: 2em;
+            animation: bounceIn 2s ease infinite alternate;
+        }
+
+        .cta button {
+            background: linear-gradient(45deg, #ae00ff, #00ffff);
+            border: none;
+            padding: 12px 25px;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .cta button:hover {
+            background: linear-gradient(45deg, #00ffff, #ae00ff);
+            box-shadow: 0 0 20px background;
+            transform: scale(1.05);
+        }
+
+        #products {
+            padding: 2em;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 20px;
+            gap: 5px;
+            margin-bottom: 2em; 
+            padding: 1em;
+            border: 1px solid #865DFF;
+            transition: transform 0.3s;
+        }
+
+        .product-item img {
+            width: 100%;
+            max-width: 80px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .product-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px #865DFF;
+        }
+
+        .product-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .product-item:nth-child(even) {
+            flex-direction: row;
+        }
+
+        .product-info {
+            max-width: 500px;
+            margin: 0 3em;
+            text-align: left;
+        }
+
+        #about {
+            padding: 2em;
+            padding-top: 10em;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #contact {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 3em;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            gap: 3em;
+            max-width: 1000px;
+            border-radius: 15px;
+            height: fit-content;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-bottom: 5em;
+        }
+        #contact img{
+            border-radius: 16px;
+            width: 100%;
+            max-width: 350px;
+            gap: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contact input, #contact textarea {
+            background: #111;
+            border: 1px solid #0f0;
+            color: #0f0;
+            margin: 0.5em 0;
+            padding: 1em;
+            width: 100%;
+            border-radius: 16px;
+            
+        }
+
+        .cta1 {
+            margin-top: 2em;
+            animation: bounceIn 2s ease infinite alternate;
+        }
+
+        .cta1 button {
+            background: linear-gradient(45deg, #ae00ff, #00ffff);
+            border: none;
+            padding: 0.7em;
+            color: #fff;
+            width: 100%;
+            font-size: 1.2em;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .cta1 button:hover {
+            background: linear-gradient(45deg, #00ffff, #ae00ff);
+            box-shadow: 0 0 20px background;
+            transform: scale(1.05);
+        }
+
+        @keyframes bounceIn {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        footer {
+            padding: 1em;
+            text-align: center;
+            background-color: #000;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+
+        .social-links,.social-links1,.social-links2,.social-links3 {
+            margin-top: 10px;
+            display:contents;
+        }
+
+        .social-links a,.social-links1 a,.social-links2 a,.social-links3 a {
+            margin: 0 10px;
+            font-size: 1.5em;
+            color: #fff;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #1877f2;
+            text-shadow: 0 0 10px #1877f2, 0 0 20px #1877f2, 0 0 30px #1877f2;
+        }
+        .social-links1 a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+        }
+        .social-links2 a:hover {y
+            color: #c32aa3;
+            text-shadow: 0 0 10px #c32aa3, 0 0 20px #c32aa3, 0 0 30px #c32aa3;
+        }
+        .social-links3 a:hover {
+            color: #0a66c2;
+            text-shadow: 0 0 10px #0a66c2, 0 0 20px #0a66c2, 0 0 30px #0a66c2;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-right {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .home-video {
+                max-width: 100%;
+            }
+
+            .product-item {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-item:nth-child(odd),
+            .product-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .product-info {
+                margin: 1em 0;
+                text-align: center;
+            }
+
+            #contact {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            #contact img {
+                margin-bottom: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="#" style="color:#f9c7f8;">
+                <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px; border-radius: 20px;">
+                Thinker Arts
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="nav-left">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#products">Our Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-right ms-auto">
+                    <i class="fas fa-user"></i>
+                    <a class="nav-link" href="login.html" style="color: #DBE6FD;">Login</a>
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Search" class="search-bar" style="color: #DBE6FD; border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <section id="home">
+        <div class="home-content">
+            <h1 class="typing-animation">Welcome to Neon Website</h1>
+            <h1 class="fadeup-animation" style="font-size: 18px;">Create Amazing Experiences</h1>
+            <div class="cta">
+                <button>Get Started</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/80" alt="Product 1">
+            <div class="product-info">
+                <h3>Product 1</h3>
+                <p>Description of Product 1</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/80" alt="Product 2">
+            <div class="product-info">
+                <h3>Product 2</h3>
+                <p>Description of Product 2</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/80" alt="Product 3">
+            <div class="product-info">
+                <h3>Product 3</h3>
+                <p>Description of Product 3</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Information about the company.</p>
+    </section><br><br>
+    <h2 align="center">Contact Us</h2>
+    <section id="contact">
+        <div>
+            <img src="https://via.placeholder.com/350" alt="Company Image">
+        </div>
+        <form>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Message"></textarea>
+            <div class="cta1">
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Neon Themed Website</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <div class="social-links1">
+            <a href="https://twitter.com/?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="social-links2">
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="social-links3">
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
