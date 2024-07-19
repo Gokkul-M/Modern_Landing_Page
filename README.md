@@ -21,6 +21,12 @@ Footer: Contains social media links with neon hover effects, encouraging visitor
 
 ## Output:
 The output of this project is a dark-themed, responsive website with neon accents that provides an engaging user experience. The website is designed to captivate visitors with its modern animations and clean, professional layout.
+![Screenshot 2024-07-16 093954](https://github.com/user-attachments/assets/ceb18c44-af18-4527-9fc7-07bc28cfb89c)
+![Screenshot 2024-07-16 094831](https://github.com/user-attachments/assets/7c5662c9-9674-4c85-9d8d-ab579a57b19f)
+![Screenshot 2024-07-16 095123](https://github.com/user-attachments/assets/28aa2ac5-5b96-4854-b78c-94d9bdd5b96b)
+![Screenshot 2024-07-16 095210](https://github.com/user-attachments/assets/11988d79-e2bf-4c12-8c52-85eaaf24e3b3)
+![Screenshot 2024-07-19 182434](https://github.com/user-attachments/assets/43a61eb2-8702-461d-80c3-44f2d4da189f)
+![image](https://github.com/user-attachments/assets/6d16ed06-8df2-4079-b14a-dcb99941e6f3)
 
 ## Result:
 The result is a fully functional, aesthetically pleasing website that effectively promotes a digital art community. The responsive design ensures that the website looks great on all devices, while the animations and neon effects create an immersive experience for users. The inclusion of social media links and a contact form facilitates better interaction with the community. Overall, the project achieves its aim of providing a modern, engaging platform for digital art enthusiasts.
